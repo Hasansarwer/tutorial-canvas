@@ -20,6 +20,7 @@ var ctx = canvas.getContext('2d'); // or canvas.getContext('2d'); // 2d renderin
 // ctx.fillStyle = 'green';
 // ctx.fillRect(10, 10, 100, 100); // Draws a green filled rectangle
 // ctx.strokeStyle = 'red';
+// ctx.strokeRect(9,9,102,102); // Draws a red outlined rectangle
 // ctx.strokeRect(150, 10, 100, 100); // Draws a red outlined rectangle
 // ctx.clearRect(20, 20, 80, 80); // Clears a rectangle inside the green one
 
@@ -29,6 +30,7 @@ var ctx = canvas.getContext('2d'); // or canvas.getContext('2d'); // 2d renderin
 // ctx.lineTo(100, 200);
 // ctx.lineTo(200, 150);
 // ctx.closePath();
+// ctx.strokeStyle = 'red';
 // ctx.stroke(); // Draws the outlined path
 // ctx.fillStyle = 'blue';
 // ctx.fill(); // Fills the path with blue color
@@ -36,7 +38,7 @@ var ctx = canvas.getContext('2d'); // or canvas.getContext('2d'); // 2d renderin
 // // Drawing Circles and Arcs
 
 // ctx.beginPath();
-// ctx.arc(300, 75, 50, 0, Math.PI * 2, true); // Outer circle
+// ctx.arc(300, 75, 50, 0, Math.PI *2, true); // Outer circle
 // ctx.moveTo(335, 75);
 // ctx.arc(300, 75, 35, 0, Math.PI, false); // Mouth (clockwise)
 // ctx.moveTo(290, 65);
@@ -45,7 +47,7 @@ var ctx = canvas.getContext('2d'); // or canvas.getContext('2d'); // 2d renderin
 // ctx.arc(315, 65, 5, 0, Math.PI * 2, true); // Right eye
 // ctx.stroke();
 
-// // Drawing Text
+// Drawing Text
 
 // ctx.font = '30px Arial';
 // ctx.fillStyle = 'black';
@@ -57,15 +59,15 @@ var ctx = canvas.getContext('2d'); // or canvas.getContext('2d'); // 2d renderin
 // // Images and Patterns
 
 // var img = new Image();
-// img.src = 'path/to/image.jpg';
+// img.src = 'he.png';
 // img.onload = function() {
-//     ctx.drawImage(img, 0, 0, 300, 150); // Draw the image
+//     ctx.drawImage(img, 30, 50, 300, 400); // Draw the image
 //     var pattern = ctx.createPattern(img, 'repeat');
 //     ctx.fillStyle = pattern;
-//     ctx.fillRect(320, 0, 150, 150); // Draw a rectangle filled with the pattern
+//     ctx.fillRect(320, 0, 600, 600); // Draw a rectangle filled with the pattern
 // };
 
-// // Combining Shapes and Text
+// Combining Shapes and Text
 
 // // Draw a filled rectangle
 // ctx.fillStyle = 'orange';
@@ -87,163 +89,163 @@ var ctx = canvas.getContext('2d'); // or canvas.getContext('2d'); // 2d renderin
 
 // //Handling Events on HTML5 Canvas
 
-// // Setting Up Event Listeners
-//  // Event listeners
-//  canvas.addEventListener('mousedown', onMouseDown);
-//  canvas.addEventListener('mousemove', onMouseMove);
-//  canvas.addEventListener('mouseup', onMouseUp);
-//  document.addEventListener('keydown', onKeyDown);
+// Setting Up Event Listeners
+ // Event listeners
+ canvas.addEventListener('mousedown', onMouseDown);
+ canvas.addEventListener('mousemove', onMouseMove);
+ canvas.addEventListener('mouseup', onMouseUp);
+ document.addEventListener('keydown', onKeyDown);
 
-//  // Event handlers
-//  function onMouseDown(event) {
-//      console.log('Mouse down at', event.offsetX, event.offsetY);
-//  }
+ // Event handlers
+ function onMouseDown(event) {
+     console.log('Mouse down at', event.offsetX, event.offsetY);
+ }
 
-//  function onMouseMove(event) {
-//      console.log('Mouse move at', event.offsetX, event.offsetY);
-//  }
+ function onMouseMove(event) {
+     console.log('Mouse move at', event.offsetX, event.offsetY);
+ }
 
-//  function onMouseUp(event) {
-//      console.log('Mouse up at', event.offsetX, event.offsetY);
-//  }
+ function onMouseUp(event) {
+     console.log('Mouse up at', event.offsetX, event.offsetY);
+ }
 
-//  function onKeyDown(event) {
-//      console.log('Key down:', event.key);
-//  }
-
-
-//  // Drawing on Canvas with Mouse Events
-
-//  var isDrawing = false;
-
-//     function onMouseDown(event) {
-//         isDrawing = true;
-//         ctx.beginPath();
-//         ctx.moveTo(event.offsetX, event.offsetY);
-//     }
-
-//     function onMouseMove(event) {
-//         if (isDrawing) {
-//             ctx.lineTo(event.offsetX, event.offsetY);
-//             ctx.stroke();
-//         }
-//     }
-
-//     function onMouseUp(event) {
-//         if (isDrawing) {
-//             ctx.lineTo(event.offsetX, event.offsetY);
-//             ctx.stroke();
-//             ctx.closePath();
-//             isDrawing = false;
-//         }
-//     }
+ function onKeyDown(event) {
+     console.log('Key down:', event.key);
+ }
 
 
-//     //Handling Keyboard Events
+ // Drawing on Canvas with Mouse Events
 
-//     function onKeyDown(event) {
-//       switch(event.key) {
-//           case 'r':
-//               ctx.strokeStyle = 'red';
-//               break;
-//           case 'g':
-//               ctx.strokeStyle = 'green';
-//               break;
-//           case 'b':
-//               ctx.strokeStyle = 'blue';
-//               break;
-//       }
-//   }
+ var isDrawing = false;
 
+    function onMouseDown(event) {
+        isDrawing = true;
+        ctx.beginPath();
+        ctx.moveTo(event.offsetX, event.offsetY);
+    }
 
-//   // Combining Mouse and Keyboard Events
+    function onMouseMove(event) {
+        if (isDrawing) {
+            ctx.lineTo(event.offsetX, event.offsetY);
+            ctx.stroke();
+        }
+    }
 
-//   var currentColor = 'black';
-
-//     function onKeyDown(event) {
-//         switch(event.key) {
-//             case 'r':
-//                 currentColor = 'red';
-//                 break;
-//             case 'g':
-//                 currentColor = 'green';
-//                 break;
-//             case 'b':
-//                 currentColor = 'blue';
-//                 break;
-//         }
-//     }
-
-//     function onMouseDown(event) {
-//         isDrawing = true;
-//         ctx.beginPath();
-//         ctx.moveTo(event.offsetX, event.offsetY);
-//     }
-
-//     function onMouseMove(event) {
-//         if (isDrawing) {
-//             ctx.strokeStyle = currentColor;
-//             ctx.lineTo(event.offsetX, event.offsetY);
-//             ctx.stroke();
-//         }
-//     }
-
-//     function onMouseUp(event) {
-//         if (isDrawing) {
-//             ctx.lineTo(event.offsetX, event.offsetY);
-//             ctx.stroke();
-//             ctx.closePath();
-//             isDrawing = false;
-//         }
-//     }
+    function onMouseUp(event) {
+        if (isDrawing) {
+            ctx.lineTo(event.offsetX, event.offsetY);
+            ctx.stroke();
+            ctx.closePath();
+            isDrawing = false;
+        }
+    }
 
 
-    // // Interactive Applications
-    // // You can develop interactive applications like drawing boards, games, and data visualizations by effectively handling canvas events.
-    // var isDrawing = false;
-    // var currentColor = 'black';
+    //Handling Keyboard Events
 
-    // canvas.addEventListener('mousedown', onMouseDown);
-    // canvas.addEventListener('mousemove', onMouseMove);
-    // canvas.addEventListener('mouseup', onMouseUp);
-    // document.addEventListener('keydown', onKeyDown);
+    function onKeyDown(event) {
+      switch(event.key) {
+          case 'r':
+              ctx.strokeStyle = 'red';
+              break;
+          case 'g':
+              ctx.strokeStyle = 'green';
+              break;
+          case 'b':
+              ctx.strokeStyle = 'blue';
+              break;
+      }
+  }
 
-    // function onMouseDown(event) {
-    //     isDrawing = true;
-    //     ctx.beginPath();
-    //     ctx.moveTo(event.offsetX, event.offsetY);
-    // }
 
-    // function onMouseMove(event) {
-    //     if (isDrawing) {
-    //         ctx.strokeStyle = currentColor;
-    //         ctx.lineTo(event.offsetX, event.offsetY);
-    //         ctx.stroke();
-    //     }
-    // }
+  // Combining Mouse and Keyboard Events
 
-    // function onMouseUp(event) {
-    //     if (isDrawing) {
-    //         ctx.lineTo(event.offsetX, event.offsetY);
-    //         ctx.stroke();
-    //         ctx.closePath();
-    //         isDrawing = false;
-    //     }
-    // }
+  var currentColor = 'black';
 
-    // function onKeyDown(event) {
-    //     switch(event.key) {
-    //         case 'r':
-    //             currentColor = 'red';
-    //             break;
-    //         case 'g':
-    //             currentColor = 'green';
-    //             break;
-    //         case 'b':
-    //             currentColor = 'blue';
-    //             break;
-    //     }
-    // }
+    function onKeyDown(event) {
+        switch(event.key) {
+            case 'r':
+                currentColor = 'red';
+                break;
+            case 'g':
+                currentColor = 'green';
+                break;
+            case 'b':
+                currentColor = 'blue';
+                break;
+        }
+    }
+
+    function onMouseDown(event) {
+        isDrawing = true;
+        ctx.beginPath();
+        ctx.moveTo(event.offsetX, event.offsetY);
+    }
+
+    function onMouseMove(event) {
+        if (isDrawing) {
+            ctx.strokeStyle = currentColor;
+            ctx.lineTo(event.offsetX, event.offsetY);
+            ctx.stroke();
+        }
+    }
+
+    function onMouseUp(event) {
+        if (isDrawing) {
+            ctx.lineTo(event.offsetX, event.offsetY);
+            ctx.stroke();
+            ctx.closePath();
+            isDrawing = false;
+        }
+    }
+
+
+    // Interactive Applications
+    // You can develop interactive applications like drawing boards, games, and data visualizations by effectively handling canvas events.
+    var isDrawing = false;
+    var currentColor = 'black';
+
+    canvas.addEventListener('mousedown', onMouseDown);
+    canvas.addEventListener('mousemove', onMouseMove);
+    canvas.addEventListener('mouseup', onMouseUp);
+    document.addEventListener('keydown', onKeyDown);
+
+    function onMouseDown(event) {
+        isDrawing = true;
+        ctx.beginPath();
+        ctx.moveTo(event.offsetX, event.offsetY);
+    }
+
+    function onMouseMove(event) {
+        if (isDrawing) {
+            ctx.strokeStyle = currentColor;
+            ctx.lineTo(event.offsetX, event.offsetY);
+            ctx.stroke();
+        }
+    }
+
+    function onMouseUp(event) {
+        if (isDrawing) {
+            ctx.lineTo(event.offsetX, event.offsetY);
+            ctx.stroke();
+            ctx.closePath();
+            isDrawing = false;
+        }
+    }
+
+    function onKeyDown(event) {
+        switch(event.key) {
+            case 'r':
+                currentColor = 'red';
+                break;
+            case 'g':
+                currentColor = 'green';
+                break;
+            case 'b':
+                currentColor = 'blue';
+                break;
+        }
+    }
 //******************************************************************************************************************** */
 // // II templates
 //******************************************************************************************************************** */
